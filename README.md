@@ -55,7 +55,7 @@ Parameters:
 **Example**:<br/>
 ```python
 import requests, json
-response = requests.get('getFarms?farm_name=103 Sparling Road, LLC;132 Pattersonville Rynex Corners Rd&include_weather=false')
+response = requests.get('http://localhost:5000/getFarms?farm_name=103 Sparling Road, LLC;132 Pattersonville Rynex Corners Rd&include_weather=false')
 ```
 ### 5. Download files
 Currently not availible. A future feature that allows clients to download the files that they get from endpoint /getFarm and /getFarms.<br/>
