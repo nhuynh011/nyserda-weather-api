@@ -1,7 +1,8 @@
 # NYSERDA Solar Farms and Weather API - Complete Documentation
 A REST API that joins New York solar farm generation data (from NYSERDA) with weather conditions (from Open-Meteo). The API supports both JSON responses and CSV file downloads.<br/>
 <br/>
-Verion 0: Currently only downloads CSV to server side.<br/>
+**Verion 0**: Currently only downloads CSV to server side.<br/>
+Requires firefox browser for Selenium webscraping.<br/>
 Base URL: `http://localhost:5000/` or `http://your-server-ip:5000/`
 
 # API Endpoints:
@@ -56,3 +57,10 @@ Parameters:
 import requests, json
 response = requests.get('getFarms?farm_name=103 Sparling Road, LLC;132 Pattersonville Rynex Corners Rd&include_weather=false')
 ```
+### 5. Download files
+Currently not availible. A future feature that allows clients to download the files that they get from endpoint /getFarm and /getFarms.<br/>
+
+# Additional Files:
+**requirements.txt**: A list of package requirements for running this script.<br/>
+**preProcessing.py**: A script that uses Selenium to scrape the NYSERDA solar farm's coordinates.<br/>
+**solarFarmNyserda.csv**: A file containing the name of the solar farm, their coordinates, capacity, and town for searchFarms endpoint. Originally, this file did not have coordinates and only had solar farm names, capacity, and town. Updated using preProcessing.py to obtain the coordinates for each farm.
