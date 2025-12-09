@@ -81,5 +81,5 @@ Weather parameters pulled alongside solar farms information from OpenMeteo.
 # Additional Files:
 **requirements.txt**: A list of package requirements for running this script.<br/>
 **preProcessing.py**: A script that uses Selenium to scrape the NYSERDA solar farm's coordinates.<br/>
-**solarFarmNyserda.csv**: A file containing the name of the solar farm, their coordinates, capacity, and town for searchFarms endpoint. Originally, this file did not have coordinates and only had solar farm names, capacity, and town. Updated using preProcessing.py to obtain the coordinates for each farm.
+**solarFarmNyserda.csv**: A file containing the name of the solar farm, their coordinates, capacity, and town for searchFarms endpoint. Originally, this file did not have coordinates and only had solar farm names, capacity, and town. Updated using preProcessing.py to obtain the coordinates for each farm.<br/>
 **testClient.py**: A test client file for unit testing.
