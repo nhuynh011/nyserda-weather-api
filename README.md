@@ -64,3 +64,4 @@ Currently not availible. A future feature that allows clients to download the fi
 **requirements.txt**: A list of package requirements for running this script.<br/>
 **preProcessing.py**: A script that uses Selenium to scrape the NYSERDA solar farm's coordinates.<br/>
 **solarFarmNyserda.csv**: A file containing the name of the solar farm, their coordinates, capacity, and town for searchFarms endpoint. Originally, this file did not have coordinates and only had solar farm names, capacity, and town. Updated using preProcessing.py to obtain the coordinates for each farm.
+**testClient.py** ADD
