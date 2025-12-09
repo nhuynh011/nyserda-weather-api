@@ -206,7 +206,7 @@ app = Flask(__name__,
             template_folder='./templates')
 
 # import coordinates csv
-lookup = pandas.read_csv("./solarFarmNyserda (2).csv")
+lookup = pandas.read_csv("./solarFarmNyserda.csv")
 
 lookup = lookup.drop(columns=['image'])
 
@@ -488,3 +488,4 @@ def get_farms():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
+
