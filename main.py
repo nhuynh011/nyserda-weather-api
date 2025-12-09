@@ -285,7 +285,7 @@ def search():
                 }
                 response['farms'].append(farm_data)
     response['status'] = 200
-    return json.dumps(response,indent='   ')
+    return json.dumps(response,indent=4), response['status']
 
 @app.route("/getFarm", methods=['GET', 'POST'])
 def get_farm():
@@ -298,12 +298,12 @@ def get_farm():
     if weather != "true" and weather != "false":
         response['status'] = 400
         response['message'] = f"No weather option provided. Please provide true or false for weather: http://localhost:5000/getFarm?farm_name=103 Sparling Road, LLC&include_weather=true"
-        return json.dumps(response,indent='   ')
+        return json.dumps(response,indent=4), response['status']
     
-    if name is None:
+    if name == '':
         response['status'] = 400
         response['message'] = f"No solar farm provided. Please call the api again with a solar farm name: http://localhost:5000/getFarm?farm_name=103 Sparling Road, LLC&include_weather=true"
-        return json.dumps(response,indent='   ')
+        return json.dumps(response,indent=4), response['status']
 
     # get farm first:
     retrieveNyserda(name) # saves into ./data
@@ -343,7 +343,7 @@ def get_farm():
         else:
             response['status'] = 400
             response['message'] = f"No weather data available from {startDate}"
-            return json.dumps(response,indent='   ')
+            return json.dumps(response,indent=4), response['status']
 
 
         dfW_temp = dfW.reset_index(drop=True).copy()
@@ -355,7 +355,7 @@ def get_farm():
         response['status'] = 200
         response['message'] = "Data retrieved successfully with weather"
         df_merged.to_csv("export.csv")
-        return json.dumps(response,indent='   ')
+        return json.dumps(response,indent=4), response['status']
 
     elif weather == "false":
         response['status'] = 200
@@ -364,7 +364,7 @@ def get_farm():
     else:
         response['status'] = 400
         response['message'] = "Weather options are not true or false. Please call the API again."
-    return json.dumps(response,indent='   ')
+    return json.dumps(response,indent=4), response['status']
 
 
 @app.route("/getFarms", methods=['GET', 'POST'])
@@ -381,12 +381,12 @@ def get_farms():
     if weather != "true" and weather != "false":
         response['status'] = 400
         response['message'] = f"No weather option provided. Please provide true or false for weather: http://localhost:5000/getFarm?farm_name=103 Sparling Road, LLC&include_weather=true"
-        return json.dumps(response,indent='   ')
+        return json.dumps(response,indent=4), response['status']
     
-    if name is None:
+    if name == '':
         response['status'] = 400
         response['message'] = f"No solar farm provided. Please call the api again with a solar farm name: http://localhost:5000/getFarm?farm_name=103 Sparling Road, LLC&include_weather=true"
-        return json.dumps(response,indent='   ')
+        return json.dumps(response,indent=4), response['status']
 
     # Retrieve data for each farm
     coords = []
@@ -423,8 +423,8 @@ def get_farms():
         common_end = min(end)
     else:
         response['status'] = 400
-        response['message'] = "No data found in CSV files"
-        return json.dumps(response, indent='   ')
+        response['message'] = "No data found in CSV files."
+        return json.dumps(response, indent=4), response['status']
     filtered_dfs = []
     for df in save:
         mask = (df['datetime'] >= common_start) & (df['datetime'] <= common_end)
@@ -463,7 +463,7 @@ def get_farms():
         else:
             response['status'] = 400
             response['message'] = f"No weather data available from {startDate}"
-            return json.dumps(response,indent='   ')
+            return json.dumps(response,indent=4), response['status']
 
 
         dfW_temp = dfW.reset_index(drop=True).copy()
@@ -475,7 +475,7 @@ def get_farms():
         response['status'] = 200
         response['message'] = "Data retrieved successfully with weather"
         df_merged.to_csv("export.csv")
-        return json.dumps(response,indent='   ')
+        return json.dumps(response,indent=4), response['status']
 
     elif weather == "false":
         response['status'] = 200
@@ -484,8 +484,7 @@ def get_farms():
     else:
         response['status'] = 400
         response['message'] = "Weather options are not true or false. Please call the API again."
-    return json.dumps(response,indent='   ')
+    return json.dumps(response,indent=4), response['status']
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
-
