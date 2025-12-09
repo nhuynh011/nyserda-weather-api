@@ -1,7 +1,7 @@
 # NYSERDA Solar Farms and Weather API - Complete Documentation
-A REST API that joins New York solar farm generation data (from NYSERDA) with weather conditions (from Open-Meteo). The API supports both JSON responses and CSV file downloads.<br/>
+A REST API that joins New York solar farm generation data (from NYSERDA: https://der.nyserda.ny.gov/search/) with weather conditions (from Open-Meteo: https://open-meteo.com/en/docs/historical-weather-api). The API supports both JSON responses and CSV file downloads.<br/>
 <br/>
-**Verion 0**: Currently only downloads CSV to server side.<br/>
+**Verion 1.0.0**: Currently only downloads CSV to server side.<br/>
 Requires firefox browser for Selenium webscraping.<br/>
 Base URL: `http://localhost:5000/` or `http://your-server-ip:5000/`
 
@@ -60,8 +60,26 @@ response = requests.get('getFarms?farm_name=103 Sparling Road, LLC;132 Patterson
 ### 5. Download files
 Currently not availible. A future feature that allows clients to download the files that they get from endpoint /getFarm and /getFarms.<br/>
 
+# Weather Parameters
+Weather parameters pulled alongside solar farms information from OpenMeteo.
+| Parameter Name | Description |
+|----------------|-------------|
+| `temperature_2m` | Air temperature measured at 2 meters above ground level |
+| `relative_humidity_2m` | Relative humidity percentage measured at 2 meters above ground |
+| `precipitation` | Total liquid-equivalent precipitation (rain, snow, sleet, etc.) |
+| `cloud_cover` | Total percentage of sky covered by clouds |
+| `cloud_cover_low` | Percentage of sky covered by low-level clouds |
+| `cloud_cover_mid` | Percentage of sky covered by mid-level clouds |
+| `cloud_cover_high` | Percentage of sky covered by high-level clouds |
+| `wind_speed_10m` | Wind speed measured at 10 meters above ground level |
+| `shortwave_radiation` | Incoming shortwave solar radiation (sunlight) reaching the surface |
+| `direct_radiation` | Direct beam solar radiation from the sun's disc |
+| `diffuse_radiation` | Scattered solar radiation from the sky |
+| `direct_normal_irradiance` | Direct solar radiation perpendicular to the sun's rays |
+| `global_tilted_irradiance` | Total solar radiation on a surface tilted at a specific angle |
+
 # Additional Files:
 **requirements.txt**: A list of package requirements for running this script.<br/>
 **preProcessing.py**: A script that uses Selenium to scrape the NYSERDA solar farm's coordinates.<br/>
 **solarFarmNyserda.csv**: A file containing the name of the solar farm, their coordinates, capacity, and town for searchFarms endpoint. Originally, this file did not have coordinates and only had solar farm names, capacity, and town. Updated using preProcessing.py to obtain the coordinates for each farm.
-**testClient.py** ADD
+**testClient.py**: A test client file for unit testing.
