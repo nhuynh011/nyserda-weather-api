@@ -23,6 +23,7 @@ Parameters:
 | `radius_km` | float | Yes | Search radius in kilometers. |
 | `capacity_min` | float | No | Minimum capacity in kW (default: 0). |
 | `capacity_max` | float | No | Maximum capacity in kW (default: unlimited). |
+
 **Example**:<br/>
 ```python
 import requests, json
@@ -35,6 +36,7 @@ Parameters:
 |-----------|------|----------|-------------|
 | `farm_name` | string | Yes | Solar farm name on NYSERDA website. |
 | `include_weather` | bool | Yes | Include weather data at specified farm (true/false). |
+
 **Example**:<br/>
 ```python
 import requests, json
@@ -48,6 +50,7 @@ Parameters:
 |-----------|------|----------|-------------|
 | `farm_name` | string | Yes | Solar farm name (in a semi-colon seperated list) from NYSERDA website (e.g., 03 Sparling Road, LLC;132 Pattersonville Rynex Corners Rd). |
 | `include_weather` | bool | Yes | Include weather data at specified farm (true/false). |
+
 **Example**:<br/>
 ```python
 import requests, json
