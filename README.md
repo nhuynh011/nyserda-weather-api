@@ -14,7 +14,7 @@ Example:<br/>
 import requests, json
 response = requests.get('http://localhost:5000/')
 ```
-### 2. Search Farms
+### 2. Search Farms (`GET/`)
 Search for solar farms within a geographic radius and/or capacity range. Only retrieves farms from 1MW o 10MW capacity.<br/>
 Parameters:
 | Parameter | Type | Required | Description |
@@ -30,7 +30,7 @@ Parameters:
 import requests, json
 response = requests.get('http://localhost:5000/searchFarms?longitude=-73.7562&latitude=42.6526&radius_km=10')
 ```
-### 3. Get Farm
+### 3. Get Farm (`GET/`)
 Gets complete historical electricity generation records for a specified solar farm by its name, optionally with weather data.<br/>
 Parameters:
 | Parameter | Type | Required | Description |
@@ -44,7 +44,7 @@ import requests, json
 response = requests.get('http://localhost:5000/getFarm?farm_name=103 Sparling Road, LLC&include_weather=true')
 ```
 
-### 4. Get Farms
+### 4. Get Farms (`GET/`)
 Get and merge data for multiple solar farms, optionally with weather data. Uses the geographic centroid of all farms for weather data retrieval.<br/>
 Parameters:
 | Parameter | Type | Required | Description |
